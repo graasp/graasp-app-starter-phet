@@ -1,0 +1,10 @@
+build-prod:
+  build: .
+  dockerfile: Dockerfile
+  encrypted_env_file: .env.prod.encrypted
+
+aws-prod:
+  image: codeship/aws-deployment
+  encrypted_env_file: .env.prod.encrypted
+  volumes:
+    - .:/deploy
